@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Скрипт для конвертации экспортированных данных из vaultwarden (JSON) в Excel формат.
+Script for converting exported data from vaultwarden (JSON) to Excel format.
 """
 
 import json
@@ -9,25 +9,25 @@ from openpyxl import Workbook
 
 
 def load_json_data(filepath):
-    """Загружает данные из JSON файла."""
+    """Loads data from a JSON file."""
     with open(filepath, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
 def create_collection_id_to_name_map(collections):
-    """Создает словарь для сопоставления ID коллекции с её названием."""
+    """Creates a dictionary to map collection ID to its name."""
     return {coll['id']: coll['name'] for coll in collections}
 
 
 def calculate_password_length(password):
-    """Вычисляет длину пароля."""
+    """Calculates the password length."""
     if password is None:
         return 0
     return len(str(password))
 
 
 def extract_items_data(data):
-    """Извлекает данные из записей и сопоставляет их с коллекциями."""
+    """Extracts data from items and maps them to collections."""
     collection_map = create_collection_id_to_name_map(data.get('collections', []))
     items = data.get('items', [])
 
@@ -39,14 +39,14 @@ def extract_items_data(data):
         username = login_info.get('username', '') if login_info else ''
         password = login_info.get('password', '') if login_info else ''
 
-        # Вычисляем длину пароля
+        # Calculate password length
         password_length = calculate_password_length(password)
 
-        # Получаем список коллекций для этой записи
+        # Get list of collections for this item
         collection_ids = item.get('collectionIds', [])
 
         if collection_ids:
-            # Если у записи есть коллекции, создаем строку для каждой коллекции
+            # If item has collections, create a row for each collection
             for coll_id in collection_ids:
                 collection_name = collection_map.get(coll_id, '')
                 result.append({
@@ -58,7 +58,7 @@ def extract_items_data(data):
                     'password_length': password_length
                 })
         else:
-            # Если у записи нет коллекций, добавляем одну строку без названия коллекции
+            # If item has no collections, add a single row without collection name
             result.append({
                 'collection_name': '',
                 'name': name,
@@ -72,22 +72,22 @@ def extract_items_data(data):
 
 
 def write_to_excel(items_data, output_filepath):
-    """Записывает данные в Excel файл."""
+    """Writes data to an Excel file."""
     wb = Workbook()
     ws = wb.active
     ws.title = "Vaultwarden Export"
 
-    # Заголовки столбцов
-    headers = ['Наименование коллекции (collection_name)',
-               'Наименование записи (name)',
-               'Комментарий к записи (note)',
-               'username (login)',
-               'Пароль(password)',
-               'Длина пароля']
+    # Column headers
+    headers = ['Collection Name (collection_name)',
+               'Item Name (name)',
+               'Item Note (note)',
+               'Username (login)',
+               'Password (password)',
+               'Password Length']
 
     ws.append(headers)
 
-    # Данные
+    # Data rows
     for item in items_data:
         ws.append([
             item['collection_name'],
@@ -98,7 +98,7 @@ def write_to_excel(items_data, output_filepath):
             item['password_length']
         ])
 
-    # Автоподбор ширины столбцов
+    # Auto-adjust column widths
     for column in ws.columns:
         max_length = 0
         column_letter = column[0].column_letter
@@ -112,26 +112,26 @@ def write_to_excel(items_data, output_filepath):
         ws.column_dimensions[column_letter].width = adjusted_width
 
     wb.save(output_filepath)
-    print(f"Файл успешно создан: {output_filepath}")
+    print(f"File successfully created: {output_filepath}")
 
 
 def main():
     input_file = 'example.json'
     output_file = 'vaultwarden_export.xlsx'
 
-    # Загрузка данных
-    print(f"Чтение файла {input_file}...")
+    # Load data
+    print(f"Reading file {input_file}...")
     data = load_json_data(input_file)
 
-    # Извлечение данных
-    print("Обработка данных...")
+    # Extract data
+    print("Processing data...")
     items_data = extract_items_data(data)
 
-    # Запись в Excel
-    print(f"Создание Excel файла {output_file}...")
+    # Write to Excel
+    print(f"Creating Excel file {output_file}...")
     write_to_excel(items_data, output_file)
 
-    print(f"Готово! Обработано записей: {len(items_data)}")
+    print(f"Done! Processed records: {len(items_data)}")
 
 
 if __name__ == '__main__':
