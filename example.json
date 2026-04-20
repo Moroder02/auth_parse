@@ -1,0 +1,183 @@
+{
+  "encrypted": false,
+  "collections": [
+    {
+      "id": "596b0e3f-25be-401a-9160-af8336269b61",
+      "organizationId": "b9920bb0-f211-4268-b86a-fd1563913927",
+      "name": "АСиТ",
+      "externalId": null
+    },
+    {
+      "id": "d6990d8e-56f4-4d7f-bc7a-0a3ddd2137db",
+      "organizationId": "b9920bb0-f211-4268-b86a-fd1563913927",
+      "name": "АСиТ/Сервера сетевой инфраструктуры",
+      "externalId": null
+    },
+    {
+      "id": "596b0e3f-25be-401a-9160-af8336269b61",
+      "organizationId": "b9920bb0-f211-4268-b86a-fd1563913927",
+      "name": "АСиТ/Сетевое оборудование",
+      "externalId": null
+    },
+    {
+      "id": "e586b7fd-b133-4f4a-bdc8-4230914e29c9",
+      "organizationId": "b9920bb0-f211-4268-b86a-fd1563913927",
+      "name": "Литера Н",
+      "externalId": null
+    }
+  ],
+  "items": [
+    {
+      "passwordHistory": null,
+      "revisionDate": "2025-04-24T10:43:45.272Z",
+      "creationDate": "2025-04-24T10:43:45.144Z",
+      "deletedDate": null,
+      "id": "4d698e14-37f8-4194-b2d2-41cd3aade9ee",
+      "organizationId": "b9920bb0-f211-4268-b86a-fd1563913927",
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "? (glpi)",
+      "notes": "Инвентаризация\t\nUbuntu\nSSH - 22",
+      "favorite": false,
+      "login": {
+        "fido2Credentials": [],
+        "uris": [],
+        "username": "sa",
+        "password": "********",
+        "totp": null
+      },
+      "collectionIds": [
+        "596b0e3f-25be-401a-9160-af8336269b61"
+      ]
+    },
+    {
+      "passwordHistory": null,
+      "revisionDate": "2025-04-24T10:43:16.849Z",
+      "creationDate": "2025-04-24T10:43:16.717Z",
+      "deletedDate": null,
+      "id": "99aa8478-18b1-4bb6-9032-7c8a8173d71b",
+      "organizationId": "b9920bb0-f211-4268-b86a-fd1563913927",
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "? (LK-CentOS7-2023)",
+      "notes": "ЛК абитуриентов\t\nCentOS\nSSH - 22",
+      "favorite": false,
+      "login": {
+        "fido2Credentials": [],
+        "uris": [],
+        "username": "uci",
+        "password": "***********",
+        "totp": null
+      },
+      "collectionIds": [
+        "596b0e3f-25be-401a-9160-af8336269b61"
+      ]
+    },
+    {
+      "passwordHistory": null,
+      "revisionDate": "2025-04-24T10:42:40.942Z",
+      "creationDate": "2025-04-24T10:42:40.832Z",
+      "deletedDate": null,
+      "id": "dfe819d5-88f1-41cd-8ac7-ba0cdceb2e88",
+      "organizationId": "b9920bb0-f211-4268-b86a-fd1563913927",
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "? (lk)",
+      "notes": "?\nWindows\nRDP - 3389",
+      "favorite": false,
+      "login": {
+        "fido2Credentials": [],
+        "uris": [],
+        "username": "Администратор",
+        "password": "**********",
+        "totp": null
+      },
+      "collectionIds": [
+        "596b0e3f-25be-401a-9160-af8336269b61"
+      ]
+    },
+    {
+      "passwordHistory": null,
+      "revisionDate": "2025-04-24T06:58:26.972Z",
+      "creationDate": "2025-04-24T06:58:26.845Z",
+      "deletedDate": null,
+      "id": "957bddf3-44e9-489b-84f5-cad55863d28b",
+      "organizationId": "b9920bb0-f211-4268-b86a-fd1563913927",
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "? (PK-DB-23)",
+      "notes": "бд приемка (запасной)\t\nWindows\nRDP - 3389",
+      "favorite": false,
+      "login": {
+        "fido2Credentials": [],
+        "uris": [],
+        "username": "Администратор",
+        "password": "*********",
+        "totp": null
+      },
+      "collectionIds": [
+        "e586b7fd-b133-4f4a-bdc8-4230914e29c9"
+      ]
+    },
+    {
+      "passwordHistory": null,
+      "revisionDate": "2025-04-24T07:06:48.998Z",
+      "creationDate": "2025-04-24T07:06:48.867Z",
+      "deletedDate": null,
+      "id": "0f35925e-9933-4b1e-8fa7-72fa97d92608",
+      "organizationId": "b9920bb0-f211-4268-b86a-fd1563913927",
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "? (pk-postgres-backup)",
+      "notes": "Бэкап БД ПК\t\nUbuntu\nSSH - 22",
+      "favorite": false,
+      "login": {
+        "fido2Credentials": [],
+        "uris": [],
+        "username": "uci",
+        "password": "*****",
+        "totp": null
+      },
+      "collectionIds": [
+        "e586b7fd-b133-4f4a-bdc8-4230914e29c9"
+      ]
+    },
+    {
+      "passwordHistory": null,
+      "revisionDate": "2026-03-30T05:28:33.236Z",
+      "creationDate": "2026-03-30T05:28:33.063Z",
+      "deletedDate": null,
+      "id": "afb4dad5-7f87-4208-9ee7-7755975b3bd3",
+      "organizationId": "b9920bb0-f211-4268-b86a-fd1563913927",
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "(template-win)",
+      "notes": "Шаблон для бухгалтерских ВМ на wind",
+      "favorite": false,
+      "fields": [
+        {
+          "name": "admin2021",
+          "value": "******",
+          "type": 0,
+          "linkedId": null
+        }
+      ],
+      "login": {
+        "fido2Credentials": [],
+        "uris": [],
+        "username": "администратор",
+        "password": "28FM5btrhnOj",
+        "totp": null
+      },
+      "collectionIds": [
+        "e586b7fd-b133-4f4a-bdc8-4230914e29c9"
+      ]
+    }
+  ]
+}
