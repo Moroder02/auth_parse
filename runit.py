@@ -19,6 +19,13 @@ def create_collection_id_to_name_map(collections):
     return {coll['id']: coll['name'] for coll in collections}
 
 
+def calculate_password_length(password):
+    """Вычисляет длину пароля."""
+    if password is None:
+        return 0
+    return len(str(password))
+
+
 def extract_items_data(data):
     """Извлекает данные из записей и сопоставляет их с коллекциями."""
     collection_map = create_collection_id_to_name_map(data.get('collections', []))
@@ -32,6 +39,9 @@ def extract_items_data(data):
         username = login_info.get('username', '') if login_info else ''
         password = login_info.get('password', '') if login_info else ''
 
+        # Вычисляем длину пароля
+        password_length = calculate_password_length(password)
+
         # Получаем список коллекций для этой записи
         collection_ids = item.get('collectionIds', [])
 
@@ -44,7 +54,8 @@ def extract_items_data(data):
                     'name': name,
                     'note': note,
                     'username': username,
-                    'password': password
+                    'password': password,
+                    'password_length': password_length
                 })
         else:
             # Если у записи нет коллекций, добавляем одну строку без названия коллекции
@@ -53,7 +64,8 @@ def extract_items_data(data):
                 'name': name,
                 'note': note,
                 'username': username,
-                'password': password
+                'password': password,
+                'password_length': password_length
             })
 
     return result
@@ -70,7 +82,8 @@ def write_to_excel(items_data, output_filepath):
                'Наименование записи (name)',
                'Комментарий к записи (note)',
                'username (login)',
-               'Пароль(password)']
+               'Пароль(password)',
+               'Длина пароля']
 
     ws.append(headers)
 
@@ -81,7 +94,8 @@ def write_to_excel(items_data, output_filepath):
             item['name'],
             item['note'],
             item['username'],
-            item['password']
+            item['password'],
+            item['password_length']
         ])
 
     # Автоподбор ширины столбцов

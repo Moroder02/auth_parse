@@ -1,5 +1,1 @@
-*.pyc
-__pycache__/
-*.xlsx
-venv/
-media/
+Nothing should be ignored since only a Python source file (`runit.py`) was modified and no build artifacts, dependencies, or temporary files were detected in the changes.
