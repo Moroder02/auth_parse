@@ -102,7 +102,7 @@ def write_to_excel(items_data, output_filepath):
 
 
 def main():
-    input_file = 'example.json'
+    input_file = 'bitwarden_org_export_20260420091640.json'
     output_file = 'vaultwarden_export.xlsx'
 
     # Загрузка данных
